@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+
+<head>
+    <title>Dream</title>
+    <meta charset="utf-8">
+    <meta name="author" content="FF">
+    <link rel="shortcut icon" href="image/pic4.png" />
+
+
+
+
+    <link rel="stylesheet" href="css/dream.css" />
+
+    <script type="text/javascript" src="js/plugin/three.min.js"></script>
+
+    <script src="js/plugin/theater.min.js"></script>
+    <script id="vs" type="x-shader/x-vertex">
+
+        varying vec2 vUv; void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 ); }
+
+    </script>
+
+    <script id="fs" type="x-shader/x-fragment">
+
+        uniform sampler2D map; uniform vec3 fogColor; uniform float fogNear; uniform float fogFar; varying vec2 vUv; void main() { float depth = gl_FragCoord.z / gl_FragCoord.w; float fogFactor = smoothstep( fogNear, fogFar, depth ); gl_FragColor = texture2D( map, vUv ); gl_FragColor.w *= pow( gl_FragCoord.z, 20.0 ); gl_FragColor = mix( gl_FragColor, vec4( fogColor, gl_FragColor.w ), fogFactor ); }
+
+    </script>
+</head>
+
+<body oncontextmenu="return(false)">
+
+    <audio autoplay="autoplay" loop="loop">
+        <source src="music/music.ogg" type="audio/ogg" />
+        <source src="music/music.mp3" type="audio/mpeg" />
+    </audio>
+    <script type="text/javascript" src="js/dream.js">
+    </script>
+
+    <div class="outer">
+        <div class="inner">
+            <div class="wrapper">
+                <div class="scene">
+                    <div>- <span id="zhm"></span>
+                    </div>
+                    <div>- <span id="ff"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function () {
+            "use strict";
+
+            var theater = new TheaterJS({
+                erase: true,
+                autoplay: true,
+                locale: "detect",
+                minSpeed: 50,
+                maxSpeed: 500
+            });
+
+            theater
+                .describe("FF", .7, "#ff")
+                .describe("ZHM", .7, "#zhm");
+
+            theater
+                .on("say:start, erase:start", function (eventName) {
+                    var self = this,
+                        current = self.current.voice;
+
+                    self.utils.addClass(current, "saying");
+                })
+                .on("say:end, erase:end", function (eventName) {
+                    var self = this,
+                        current = self.current.voice;
+
+                    self.utils.removeClass(current, "saying");
+                });
+
+            theater
+                .write("ZHM:FF，在吗？", 200)
+                .write("FF:在啊，怎么了?", 200)
+                .write("ZHM:你。。干嘛呢", 200)
+                .write("FF:看美女", -2, "书啊，都快睡着了", 200)
+                .write("ZHM:...", 7000)
+                .write("FF:嗯？怎么不说话了", 400)
+                .write("ZHM:我觉得我可能真的要出国了", 200)
+                .write("FF:噢 出啊 你又不是说了一两天了", 1600)
+                .write("FF:出什么问题了么？", 1600)
+                .write("ZHM:没", 2000)
+                .write("FF:那是怎么了？不开心？大师兄说你了？", 200)
+                .write("ZHM:不是", 200)
+                .write("FF:那你身体不舒服吗，大姨妈来了？", 200)
+                .write("ZHM:...", 3000)
+                .write("FF:额。。。", 200)
+                .write("ZHM:我说  ", 1200, "我要出国了", 200)
+                .write("FF:我知道啊，然后呢", 200)
+                .write("ZHM:然后？然后你妹啊", -8, ".", 700, ".", 700, ".", 700, ".", 700, ".", 700)
+                .write("FF:你今天很奇怪诶", 200)
+                .write("ZHM:", 10000)
+                .write("FF:又不想说话了？", 200)
+                .write("ZHM:你难道不害怕吗？", 1000, "我出国的事情？", 200)
+                .write("FF:en?", 200)
+                .write("ZHM:你不是说你一直觉得异地不靠谱 ", 200)
+                .write("ZHM:对异地没有信心么?", 200)
+                .write("ZHM:我现在要准备出国了 你不担心吗", 200)
+                .write("FF:不是啊", 200)
+                .write("ZHM:可是你一点都不。。", 1000, "担心..", 200)
+                .write("FF:我靠", 800, -2, "担心？", 200)
+                .write("ZHM:嗯", 200)
+                .write("FF:好吧 也不是没担心啊", 200)
+                .write("FF:刚开始我们在一起的时候你就说你要出国", 200)
+                .write("FF:内时候有点害怕 但是蜜月太快乐 也没怎么想", 200)
+                .write("FF:慢慢的 我觉得你说的出国可能不只是说说", 200)
+                .write("FF:我才认真的想这个问题", 200)
+                .write("FF:出去念究生 念master不知道要多久", 200)
+                .write("FF:但是我又不是去工作 ", 200)
+                .write("ZHM:说重点...", 200)
+                .write("FF:嗯 我想还是", 1000, -2, "等", 1000, "你", 200)
+                .write("FF:你去追你的梦想啊 我等你回来", 200)
+                .write("FF:未来真的很不好说，但是我想等你", 200)
+                .write("FF:因为难得遇到喜欢的人 你又很棒", 200)
+                .write("FF:所以。。", 200)
+                .write("FF:我都想在念研究生的时候更加努力", 200)
+                .write("FF:努力学习 磨练气质 变成熟", 200)
+                .write("FF:为了不跟你差距变大", 200)
+                .write("FF:所以我这是做好了心理准备你明白吗？", 200)
+                .write("ZHM:嗯", 200)
+                .write("FF:所以我表现的不担心，", 500)
+                .write("FF:其实每次都给自己鼓劲的", 200)
+                .write("FF:要相信自己 相信小不点''", 200)
+                .write("ZHM:我知道了。。", 200).write("FF:")
+                .write(function () {
+                    theater.play(true);
+                });
+
+
+        })();
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,172 @@
+ html,
+ body {
+     height: 100%;
+     margin: 0;
+     cursor: none;
+     font-family: 'Miao', '微软雅黑';background-color:#f3ebe0;
+     overflow: hidden;
+ }
+ 
+ @font-face {
+     font-family: 'Miao';
+     src: url('../font/Miao.eot');
+     /*IE*/
+     
+     src: url('../font/Miao.eot?#font-spider') format('embedded-opentype'), url('../font/Miao.woff') format('woff'), url('../font/Miao.ttf') format('truetype'), url('../font/Miao.svg') format('svg');
+     /*现代浏览器*/
+     
+     font-weight: normal;
+     font-style: normal;
+ }
+ 
+ .draw {
+     position: fixed;
+     width: 1px;
+     line-height: 1px;
+ }
+ 
+ .container {
+     position: fixed;
+     width: 100%;
+     bottom: 0;
+     z-index: 10;
+ }
+ 
+ .button {
+     display: inline-block;
+     position: relative;
+     float: left;
+     font-size: 30px;
+     width: 20%;
+     height: 50px;
+     line-height: 50px;
+     margin: 0;
+     text-align: center;
+     color: rgba(0, 0, 0, 0.3);
+     background: #37A9DD;
+     box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+     cursor: pointer;
+     transition: all 0.2s ease;
+ }
+ 
+ .clicked {
+     box-shadow: inset 0 2px 7px rgba(0, 0, 0, 0.4);
+     color: white;
+ }
+ /*Prefix Free*/
+ 
+ @keyframes floatOne {
+     0% {
+         opacity: 1;
+     }
+     50% {
+         opacity: 1;
+     }
+     100% {
+         opacity: 0;
+         transform: translate3D(0, -20px, 0) scale(.2) rotate(45deg);
+     }
+ }
+ 
+ @keyframes floatTwo {
+     0% {
+         opacity: 1;
+     }
+     50% {
+         opacity: 1;
+     }
+     100% {
+         opacity: 0;
+         transform: translate3D(0, -35px, 0) scale(.1) rotate(-45deg);
+     }
+ }
+ 
+ @keyframes floatThree {
+     0% {
+         opacity: 1;
+     }
+     50% {
+         opacity: 1;
+     }
+     100% {
+         opacity: 0;
+         transform: translate3D(0, -50px, 0) scale(.3) rotate(45deg);
+     }
+ }
+ 
+ @keyframes floatFour {
+     0% {
+         opacity: 1;
+     }
+     50% {
+         opacity: 1;
+     }
+     100% {
+         opacity: 0;
+         transform: translate3D(0, -65px, 0) scale(.1) rotate(-45deg);
+     }
+ }
+ 
+ @keyframes floatFive {
+     0% {
+         opacity: 1;
+     }
+     50% {
+         opacity: 1;
+     }
+     100% {
+         opacity: 0;
+         transform: translate3D(0, -80px, 0) scale(.2) rotate(-45deg);
+     }
+ }
+ 
+ .test {
+     display: block;
+     width: 100px;
+     height: 100px;
+     background-color: rgb(100, 100, 100);
+ }
+ 
+ .tag-img {
+     width: 80px;
+     height: 80px;
+ }
+ 
+ .tag-img:hover {
+     cursor: auto;
+     width: 100px;
+     height: 100px;
+ }
+ 
+ #tag-show-area {
+     display: block;
+     margin: 0px auto;
+     border-width: 1px;
+     border-color: #000000;
+     
+ }
+ 
+ .tag-item {
+     margin: 0px;
+     padding: 0px;
+ }
+ 
+ #tag-show-area-div {
+     border-width: 1px;
+     border-color: #000000;
+     background-color:#f3ebe0;
+ }
+ 
+ .title {
+     text-align: center;
+ }
+.tips {
+    position: absolute;
+    right: 6%;
+    bottom: 5%;
+    
+}
+
+span#cnzz_stat_icon_1254532139 a{
+    display:none;
+}
